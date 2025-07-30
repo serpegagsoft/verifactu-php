@@ -88,7 +88,7 @@ class InvoiceCancellation extends InvoiceRecord
             }],
             ['generator', function($value) {
                 if ($value === null) return true;
-                return ($value instanceof GeneratorType) ? true : 'Must be an instance of GeneratorType.';
+                return GeneratorType::isValidValue($value) ? true : 'Must be an instance of GeneratorType.';
             }],
             ['generatorData', function($value) {
                 if ($value === null) return true;

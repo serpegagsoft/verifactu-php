@@ -4,25 +4,25 @@ namespace eseperio\verifactu\models\enums;
 /**
  * Enumeration for tax types (ImpuestoType).
  */
-enum TaxType: string
+class TaxType extends EnumHelper
 {
     /**
      * Value Added Tax (IVA)
      */
-    case IVA = '01';
+    public const IVA = '01';
     
     /**
      * Tax on Production, Services and Imports (IPSI) of Ceuta and Melilla
      */
-    case IPSI = '02';
+    public const IPSI = '02';
     
     /**
      * General Indirect Tax of the Canary Islands (IGIC)
      */
-    case IGIC = '03';
+    public const IGIC = '03';
     
     /**
      * Other taxes
      */
-    case OTHER = '05';
+    public const OTHER = '05';
 }

@@ -97,11 +97,11 @@ class BreakdownDetail extends Model
             }],
             ['operationQualification', function($value) {
                 if ($value === null) return true;
-                return ($value instanceof OperationQualificationType) ? true : 'Must be an instance of OperationQualificationType.';
+                return OperationQualificationType::isValidValue($value) ? true : 'Must be an instance of OperationQualificationType.';
             }],
             ['exemptOperation', function($value) {
                 if ($value === null) return true;
-                return ($value instanceof ExemptOperationType) ? true : 'Must be an instance of ExemptOperationType.';
+                return ExemptOperationType::isValidValue($value) ? true : 'Invalid value for ExemptOperationType';
             }],
         ];
     }

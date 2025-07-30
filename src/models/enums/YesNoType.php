@@ -6,15 +6,15 @@ namespace eseperio\verifactu\models\enums;
  * Original schema: SiNoType
  * @see docs/aeat/esquemas/SuministroInformacion.xsd.xml
  */
-enum YesNoType: string
+class YesNoType extends EnumHelper
 {
     /**
      * Yes
      */
-    case YES = 'S';
+    public const YES = 'S';
     
     /**
      * No
      */
-    case NO = 'N';
+    public const NO = 'N';
 }

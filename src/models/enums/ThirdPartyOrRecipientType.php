@@ -4,15 +4,15 @@ namespace eseperio\verifactu\models\enums;
 /**
  * Enumeration for third party or recipient types (TercerosODestinatarioType).
  */
-enum ThirdPartyOrRecipientType: string
+class ThirdPartyOrRecipientType extends EnumHelper
 {
     /**
      * Recipient
      */
-    case RECIPIENT = 'D';
+    public const RECIPIENT = 'D';
     
     /**
      * Third party
      */
-    case THIRD_PARTY = 'T';
+    public const THIRD_PARTY = 'T';
 }

@@ -4,20 +4,20 @@ namespace eseperio\verifactu\models\enums;
 /**
  * Enumeration for generator types (GeneradoPorType).
  */
-enum GeneratorType: string
+class GeneratorType extends EnumHelper
 {
     /**
      * Issuer (obliged to issue the cancelled invoice)
      */
-    case ISSUER = 'E';
+    public const ISSUER = 'E';
     
     /**
      * Recipient
      */
-    case RECIPIENT = 'D';
+    public const RECIPIENT = 'D';
     
     /**
      * Third party
      */
-    case THIRD_PARTY = 'T';
+    public const THIRD_PARTY = 'T';
 }

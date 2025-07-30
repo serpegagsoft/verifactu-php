@@ -4,15 +4,15 @@ namespace eseperio\verifactu\models\enums;
 /**
  * Enumeration for rectification types (ClaveTipoRectificativaType).
  */
-enum RectificationType: string
+class RectificationType extends EnumHelper
 {
     /**
      * Substitutive rectification
      */
-    case SUBSTITUTIVE = 'S';
+    public const SUBSTITUTIVE = 'S';
     
     /**
      * Incremental rectification
      */
-    case INCREMENTAL = 'I';
+    public const INCREMENTAL = 'I';
 }

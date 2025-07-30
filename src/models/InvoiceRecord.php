@@ -231,7 +231,7 @@ abstract class InvoiceRecord extends Model
                 return ($value instanceof ComputerSystem) ? true : 'Must be an instance of ComputerSystem.';
             }],
             ['hashType', function($value) {
-                return ($value instanceof HashType) ? true : 'Must be an instance of HashType.';
+                return HashType::isValidValue($value) ? true : 'Must be an instance of HashType.';
             }],
             [['externalRef', 'xmlSignature'], function ($value) {
                 return (is_null($value) || is_string($value)) ? true : 'Must be string or null.';

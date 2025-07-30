@@ -108,7 +108,7 @@ class ComputerSystem extends Model
             [['providerName', 'providerId', 'systemName', 'systemId', 'version', 'installationNumber', 'onlyVerifactu', 'multipleObligations', 'hasMultipleObligations'], 'required'],
             [['providerName', 'systemName', 'systemId', 'version', 'installationNumber'], 'string'],
             [['onlyVerifactu', 'multipleObligations', 'hasMultipleObligations'], function($value) {
-                return ($value instanceof YesNoType) ? true : 'Must be an instance of YesNoType.';
+                return YesNoType::isValidValue($value) ? true : 'Must be an instance of YesNoType.';
             }],
             ['providerId', function($value) {
                 return ($value instanceof LegalPerson) ? true : 'Must be an instance of LegalPerson.';

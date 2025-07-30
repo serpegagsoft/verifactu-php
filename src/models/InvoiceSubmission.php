@@ -450,7 +450,7 @@ class InvoiceSubmission extends InvoiceRecord
             }],
             ['issuedBy', function($value) {
                 if ($value === null) return true;
-                return ($value instanceof ThirdPartyOrRecipientType) ? true : 'Must be an instance of ThirdPartyOrRecipientType.';
+                return ThirdPartyOrRecipientType::isValidValue($value) ? true : 'Must be an instance of ThirdPartyOrRecipientType.';
             }],
             ['thirdParty', function($value) {
                 if ($value === null) return true;
