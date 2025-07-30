@@ -1,5 +1,5 @@
 {
-  "name": "serpega/verifactu-php",
+  "name": "serpegagsoft/verifactu-php",
   "description": "Librería para la integración del sistema de la agencia tributaria española \"Veri*factu\" (verifactu) Fork adaptado para PHP 7.x",
   "type": "library",
   "require": {
