@@ -3,7 +3,7 @@
   "description": "Librería para la integración del sistema de la agencia tributaria española \"Veri*factu\" (verifactu) Fork adaptado para PHP 7.x",
   "type": "library",
   "require": {
-    "bacon/bacon-qr-code": "^3",
+    "bacon/bacon-qr-code": "^2",
     "robrichards/xmlseclibs": "^3.0",
     "php": ">=7.4",
     "ext-soap": "*",
