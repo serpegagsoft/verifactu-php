@@ -1,6 +1,6 @@
 {
-  "name": "eseperio/verifactu-php",
-  "description": "Librería para la integración del sistema de la agencia tributaria española \"Veri*factu\" (verifactu)",
+  "name": "serpega/verifactu-php",
+  "description": "Librería para la integración del sistema de la agencia tributaria española \"Veri*factu\" (verifactu) Fork adaptado para PHP 7.x",
   "type": "library",
   "require": {
     "bacon/bacon-qr-code": "^3",
@@ -27,8 +27,8 @@
   },
   "authors": [
     {
-      "name": "E.Alamo",
-      "email": "erosdelalamo@gmail.com"
+      "name": "Sergio Pérez",
+      "email": "serpega1@gmail.com"
     }
   ],
   "minimum-stability": "dev",
