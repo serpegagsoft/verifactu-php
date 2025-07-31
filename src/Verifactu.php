@@ -66,11 +66,16 @@ class Verifactu
             default => throw new \InvalidArgumentException("Invalid environment: $environment")
         };
 
-        $qrValidationUrl = match ($environment) {
-            self::ENVIRONMENT_PRODUCTION => self::QR_VERIFICATION_URL_PRODUCTION,
-            self::ENVIRONMENT_SANDBOX => self::QR_VERIFICATION_URL_TEST,
-            default => throw new \InvalidArgumentException("Invalid environment: $environment")
-        };
+        switch ($environment) {
+            case self::ENVIRONMENT_PRODUCTION:
+                $qrValidationUrl = self::QR_VERIFICATION_URL_PRODUCTION;
+                break;
+            case self::ENVIRONMENT_SANDBOX:
+                $qrValidationUrl = self::QR_VERIFICATION_URL_TEST;
+                break;
+            default:
+                throw new \InvalidArgumentException("Invalid environment: $environment");
+        }
 
         VerifactuService::config([
             VerifactuService::CERT_PATH_KEY => $certPath,
