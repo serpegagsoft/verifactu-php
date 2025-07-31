@@ -426,27 +426,27 @@ class InvoiceSubmission extends InvoiceRecord
             [['issuerName', 'invoiceType', 'operationDescription', 'breakdown', 'taxAmount', 'totalAmount'], 'required'],
             [['issuerName', 'operationDescription', 'operationDate', 'invoiceAgreementNumber', 'systemAgreementId'], 'string'],
             ['invoiceType', function($value) {
-                return ($value instanceof InvoiceType) ? true : 'Must be an instance of InvoiceType.';
+                return InvoiceType::isValidValue($value) ? true : 'Invalid value for InvoiceType.';
             }],
             ['rectificationType', function($value) {
                 if ($value === null) return true;
-                return ($value instanceof RectificationType) ? true : 'Must be an instance of RectificationType.';
+                return RectificationType::isValidValue($value) ? true : 'Invalid value for RectificationType.';
             }],
             ['simplifiedInvoice', function($value) {
                 if ($value === null) return true;
-                return ($value instanceof YesNoType) ? true : 'Must be an instance of YesNoType.';
+                return YesNoType::isValidValue($value) ? true : 'Invalid value for YesNoType.';
             }],
             ['invoiceWithoutRecipient', function($value) {
                 if ($value === null) return true;
-                return ($value instanceof YesNoType) ? true : 'Must be an instance of YesNoType.';
+                return YesNoType::isValidValue($value) ? true : 'Invalid value for YesNoType.';
             }],
             ['macrodata', function($value) {
                 if ($value === null) return true;
-                return ($value instanceof YesNoType) ? true : 'Must be an instance of YesNoType.';
+                return YesNoType::isValidValue($value) ? true : 'Invalid value for YesNoType.';
             }],
             ['coupon', function($value) {
                 if ($value === null) return true;
-                return ($value instanceof YesNoType) ? true : 'Must be an instance of YesNoType.';
+                return YesNoType::isValidValue($value) ? true : 'Invalid value for YesNoType.';
             }],
             ['issuedBy', function($value) {
                 if ($value === null) return true;
