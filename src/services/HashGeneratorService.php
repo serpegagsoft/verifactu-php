@@ -37,14 +37,17 @@ class HashGeneratorService
         // Detect type: submission or cancellation
         if ($record instanceof \eseperio\verifactu\models\InvoiceSubmission) {
             // Fields order for "RegistroAlta" (submission)
+
+            $chaining = $record->getChaining();
+
             $fields = [
-                'issuerNif'         => $record->invoiceId->issuerNif,
-                'seriesNumber'      => $record->invoiceId->seriesNumber,
-                'issueDate'         => $record->invoiceId->issueDate,
+                'issuerNif'         => $record->getInvoiceId()->issuerNif,
+                'seriesNumber'      => $record->getInvoiceId()->seriesNumber,
+                'issueDate'         => $record->getInvoiceId()->issueDate,
                 'invoiceType'       => $record->invoiceType,
                 'taxAmount'         => $record->taxAmount,
                 'totalAmount'       => $record->totalAmount,
-                'hash'              => isset($record->chaining['previousHash']) ? $record->chaining['previousHash'] : '',
+                'hash'              => $chaining->getPreviousInvoice() ? $chaining->getPreviousInvoice()->hash : '',
                 'recordTimestamp'   => $record->recordTimestamp,
             ];
 
@@ -67,11 +70,14 @@ class HashGeneratorService
 
         } elseif ($record instanceof \eseperio\verifactu\models\InvoiceCancellation) {
             // Fields order for "RegistroAnulacion" (cancellation)
+
+            $chaining = $record->getChaining();
+
             $fields = [
-                'issuerNif'         => $record->invoiceId->issuerNif,
-                'seriesNumber'      => $record->invoiceId->seriesNumber,
-                'issueDate'         => $record->invoiceId->issueDate,
-                'hash'              => isset($record->chaining['previousHash']) ? $record->chaining['previousHash'] : '',
+                'issuerNif'         => $record->getInvoiceId()->issuerNif,
+                'seriesNumber'      => $record->getInvoiceId()->seriesNumber,
+                'issueDate'         => $record->getInvoiceId()->issueDate,
+                'hash'              => $chaining->getPreviousInvoice() ? $chaining->getPreviousInvoice()->hash : '',
                 'recordTimestamp'   => $record->recordTimestamp,
             ];
 
