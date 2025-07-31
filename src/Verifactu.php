@@ -60,11 +60,16 @@ class Verifactu
     public static function config($certPath, $certPassword, $certType, $environment = self::ENVIRONMENT_PRODUCTION)
     {
 
-        $endpoint = match ($environment) {
-            self::ENVIRONMENT_PRODUCTION => $certType === self::TYPE_SEAL ? self::URL_PRODUCTION_SEAL : self::URL_PRODUCTION,
-            self::ENVIRONMENT_SANDBOX => $certType === self::TYPE_SEAL ? self::URL_TEST_SEAL : self::URL_TEST,
-            default => throw new \InvalidArgumentException("Invalid environment: $environment")
-        };
+        switch ($environment) {
+            case self::ENVIRONMENT_PRODUCTION:
+                $endpoint = $certType === self::TYPE_SEAL ? self::URL_PRODUCTION_SEAL : self::URL_PRODUCTION;
+                break;
+            case self::ENVIRONMENT_SANDBOX:
+                $endpoint = $certType === self::TYPE_SEAL ? self::URL_TEST_SEAL : self::URL_TEST;
+                break;
+            default:
+                throw new \InvalidArgumentException("Invalid environment: $environment");
+        }
 
         switch ($environment) {
             case self::ENVIRONMENT_PRODUCTION:
